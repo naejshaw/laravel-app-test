@@ -14,6 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+Route::prefix('v1')->group(function(){
+    Route::get('lista', function(){
+        return ["a", "b", "c"];
+    });
+
+    Route::post('cadastrar', function(){
+        echo 'implementar';
+    });
+});
+
+Route::prefix('v2')->group(function(){
+    Route::get('lista', function(){
+        return ["a", "b", "c", "d", "e", "f"];
+    });
+
+    Route::post('cadastrar', function(){
+        echo 'implementar';
+    });
 });
