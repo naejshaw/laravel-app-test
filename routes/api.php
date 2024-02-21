@@ -1,7 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Models\Model\Usuario;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,20 +19,18 @@ use Illuminate\Support\Facades\Route;
 // });
 Route::prefix('v1')->group(function(){
     Route::get('lista', function(){
-        return ["a", "b", "c"];
+        return Usuario::listar(10);
     });
 
-    Route::post('cadastrar', function(){
-        echo 'implementar';
-    });
+    Route::post('cadastrar', "API\Usuario@salvar");
 });
 
-Route::prefix('v2')->group(function(){
-    Route::get('lista', function(){
-        return ["a", "b", "c", "d", "e", "f"];
-    });
+// Route::prefix('v2')->group(function(){
+//     Route::get('lista', function(){
+//         return ["a", "b", "c", "d", "e", "f"];
+//     });
 
-    Route::post('cadastrar', function(){
-        echo 'implementar';
-    });
-});
+//     Route::post('cadastrar', function(){
+//         echo 'implementar';
+//     });
+// });
